@@ -26,8 +26,9 @@ INSTALLED_APPS = [
     "drf_yasg",
     "rest_framework",
     "rest_framework_simplejwt",
-
-    "users"
+    "users",
+    "products",
+    "suppliers",
 ]
 
 MIDDLEWARE = [

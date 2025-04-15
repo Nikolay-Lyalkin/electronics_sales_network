@@ -1,6 +1,6 @@
 from django.contrib.auth.hashers import make_password
-from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 from users.models import User
 from users.serializers import UserSerializer
@@ -20,17 +20,21 @@ class UserCreateAPIView(generics.CreateAPIView):
 class UserListAPIView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class UserUpdateAPIView(generics.UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class UserDeleteAPIView(generics.DestroyAPIView):
     queryset = User.objects.all()
+    permission_classes = [IsAuthenticated]
 
 
 class UserRetrieveAPIView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
