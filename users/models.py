@@ -4,7 +4,7 @@ from django.db import models
 
 class User(AbstractUser):
 
-    username = models.CharField(unique=True, verbose_name="Никнейм пользователя",  max_length=30)
+    username = models.CharField(unique=True, verbose_name="Никнейм пользователя", max_length=30)
     email = models.EmailField(unique=True, verbose_name="Электронная почта", max_length=50)
     name_company = models.CharField(verbose_name="Наименование компании", blank=True, null=True, max_length=50)
     phone_number = models.CharField(verbose_name="Номер телефона", blank=True, null=True, max_length=20)

@@ -26,8 +26,9 @@ INSTALLED_APPS = [
     "drf_yasg",
     "rest_framework",
     "rest_framework_simplejwt",
-
-    "users"
+    "users",
+    "products",
+    "suppliers",
 ]
 
 MIDDLEWARE = [
@@ -38,7 +39,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -104,9 +104,6 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "users.User"
@@ -124,22 +121,6 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 
-# URL-адрес брокера сообщений
-# CELERY_BROKER_URL = "redis://redis/0"  # Например, Redis, который по умолчанию работает на порту 6379
-
-# URL-адрес брокера результатов, также Redis
-# CELERY_RESULT_BACKEND = "redis://redis/0"
-
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:8000",  # Замените на адрес вашего фронтенд-сервера
-# ]
-
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://read-and-write.example.com",  # Замените на адрес вашего фронтенд-сервера
-#     "http://localhost:8000",  # и добавьте адрес бэкенд-сервера
-# ]
-
-# CORS_ALLOW_ALL_ORIGINS = False
 
 if "test" in sys.argv:
     DATABASES = {
